@@ -29,20 +29,16 @@ processes.
 from __future__ import division
 
 import numpy as np
-from numpy.fft import fft2, ifft2
 from math import ceil, fabs
+from numpy.fft import fft2, ifft2
 from mpi4py import MPI
 from parutils import pprint
-
-#=============================================================================
-# Main
 
 size = 10000           # lengt of vector v
 iter = 20              # number of iterations to run
 
 comm = MPI.COMM_WORLD
 
-pprint("============================================================================")
 pprint(" Running %d parallel MPI processes" % comm.size)
 
 my_size = size // comm.size     # Every process computes a vector of lenth *my_size*
@@ -50,34 +46,28 @@ size = comm.size*my_size        # Make sure size is a integer multiple of comm.s
 my_offset = comm.rank*my_size
 
 # This is the complete vector
-vec = np.zeros(size)            # Every element zero...
-vec[0] = 1.0                    #  ... besides vec[0]
+v = np.zeros(size)            # creates an array with all elements 0
+v[0] = 1.0                    #  initialisies the first element to 1
 
-# Create my (local) slice of the matrix
+# creates a local slice instance of the matrix
 my_M = np.zeros((my_size, size))
 for i in xrange(my_size):
     j = (my_offset+i-1) % size
     my_M[i,j] = 1.0
 
-comm.Barrier()                    ### Start stopwatch ###
-t_start = MPI.Wtime()
+comm.Barrier() # creates a barrier, so it does not allow any process to flow through until all of them call it
+t_start = MPI.Wtime() #start clock
 
 for t in xrange(iter):
-    my_new_vec = np.inner(my_M, vec)
-    
-    comm.Allgather(
-        [my_new_vec, MPI.DOUBLE], 
-        [vec, MPI.DOUBLE] 
-    )
+    my_new_vec = np.inner(my_M, v)   
+    comm.Allgather([my_new_vec, MPI.DOUBLE], [v, MPI.DOUBLE])
 
 comm.Barrier()
-t_diff = MPI.Wtime() - t_start    ### Stop stopwatch ###
+t_diff = MPI.Wtime() - t_start    #stop clock
 
-if fabs(vec[iter]-1.0) > 0.01:
-    pprint("!! Error: Wrong result!")
+if fabs(v[iter]-1.0) > 0.01:
+    pprint("Wrong result error")
 
 pprint(" %d iterations of size %d in %5.2fs: %5.2f iterations per second" %
     (iter, size, t_diff, iter/t_diff) 
 )
-pprint("============================================================================")
-
