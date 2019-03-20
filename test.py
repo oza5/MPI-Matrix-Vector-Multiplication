@@ -32,7 +32,6 @@ import numpy as np
 from numpy.fft import fft2, ifft2
 from math import ceil, fabs
 from mpi4py import MPI
-from parutils import pprint
 
 #=============================================================================
 # Main
@@ -42,8 +41,8 @@ iter = 20              # number of iterations to run
 
 comm = MPI.COMM_WORLD
 
-pprint("============================================================================")
-pprint(" Running %d parallel MPI processes" % comm.size)
+print("============================================================================")
+print(" Running %d parallel MPI processes" % comm.size)
 
 my_size = size // comm.size     # Every process computes a vector of lenth *my_size*
 size = comm.size*my_size        # Make sure size is a integer multiple of comm.size
@@ -76,8 +75,8 @@ t_diff = MPI.Wtime() - t_start    ### Stop stopwatch ###
 if fabs(vec[iter]-1.0) > 0.01:
     pprint("!! Error: Wrong result!")
 
-pprint(" %d iterations of size %d in %5.2fs: %5.2f iterations per second" %
+print(" %d iterations of size %d in %5.2fs: %5.2f iterations per second" %
     (iter, size, t_diff, iter/t_diff) 
 )
-pprint("============================================================================")
+print("============================================================================")
 
