@@ -12,7 +12,7 @@ $mpirun -n 4 python test.py
 -code consists of comments.
 
 
-#StarCluster and Mpich2 Configurations:
+# StarCluster and Mpich2 Configurations:
 Following are the configurations that the StarCluster on our EC2 instance is running on. These values can be changed in the ".starcluster/Config" file under [aws info]:
 
 ###########
