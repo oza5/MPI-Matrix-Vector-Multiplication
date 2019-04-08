@@ -17,9 +17,9 @@ Following are the configurations that the StarCluster on our EC2 instance is run
 
 ###########
 [aws info]
-AWS_ACCESS_KEY_ID =AKIAJFKPWFXUOBDDAFFA #your_aws_access_key_id
-AWS_SECRET_ACCESS_KEY =3jrK38lJ1xQwpGaLuqAukwdPgf1jri9aotlCiuoX #your_secret_access_key
-AWS_USER_ID=644737256114 #your userid
+AWS_ACCESS_KEY_ID =#your_aws_access_key_id
+AWS_SECRET_ACCESS_KEY = #your_secret_access_key
+AWS_USER_ID=#your userid
 
 [key mykey]
 KEY_LOCATION=~/.ssh/mykey.rsa
