@@ -1,5 +1,9 @@
-# MPI-Matrix-Vector-Multiplication
+##PROJECT DOCUMENTATION
+
+
+# V-MM.py:
 The code can be run using the following command:
+
 
 $mpirun -n 4 python test.py
 
@@ -7,7 +11,33 @@ $mpirun -n 4 python test.py
 -prints out thr runnig time of each node
 -code consists of comments.
 
--Documentation:
-We used various tutorials to first of all get a hang of the MPI syntax and working, we then used tutorials like MPI4py documentation to help us with implementing this simple parallel matrix-vector multiplication program, the number of processors are kept low for initial testing which also allows us to work on our local linux machines by installing the MPI4py package on our terminal, This allows us to not use Amazon aws for the meantime as small aounts of testing can be done on our computers.
 
-The matrix vector multiplication works on the idea of allowing parallel processs to calculate different portions of the vector and then at the end gathering all these calculations to reach the correct answer. Each process when initialised starts a stopwatch that keeps track of the time taken by that specific process to calculate the result of the  portion of v alloted to it.  
+#StarCluster and Mpich2 Configurations:
+Following are the configurations that the StarCluster on our EC2 instance is running on. These values can be changed in the ".starcluster/Config" file under [aws info]:
+
+###########
+[aws info]
+AWS_ACCESS_KEY_ID =AKIAJFKPWFXUOBDDAFFA #your_aws_access_key_id
+AWS_SECRET_ACCESS_KEY =3jrK38lJ1xQwpGaLuqAukwdPgf1jri9aotlCiuoX #your_secret_access_key
+AWS_USER_ID=644737256114 #your userid
+
+[key mykey]
+KEY_LOCATION=~/.ssh/mykey.rsa
+
+[cluster smallcluster]
+KEYNAME = mykey
+CLUSTER_SIZE = 8
+CLUSTER_USER = sgeadmin
+CLUSTER_SHELL = bash
+NODE_IMAGE_ID = ami-3393a45a
+NODE_INSTANCE_TYPE = t1.micro
+MASTER_INSTANCE_TYPE = t1.micro
+PLUGINS = mpich2
+##########
+
+
+
+
+
+
+
