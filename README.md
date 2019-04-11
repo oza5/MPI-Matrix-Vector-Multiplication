@@ -25,7 +25,7 @@ Following are the configurations that the StarCluster on our EC2 instance is run
 
 These values can be changed in the `".starcluster/Config"` file under [aws info]:
 
-`[aws info]
+`[aws info]\n
 AWS_ACCESS_KEY_ID =#your_aws_access_key_id
 AWS_SECRET_ACCESS_KEY = #your_secret_access_key
 AWS_USER_ID=#your userid`
