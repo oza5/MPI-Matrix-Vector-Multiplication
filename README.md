@@ -45,7 +45,7 @@ PLUGINS = mpich2
 
 4.Once cluster has started type: $ su - sgeadmin
 
-5. Now you may run your .py file using the method stated under "Iter-mpi-matrix-vetor.py" heading of this page.
+5.Now you may run your .py file using the method stated under "Iter-mpi-matrix-vetor.py" heading of this page.
 
 
 
