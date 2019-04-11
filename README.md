@@ -45,15 +45,15 @@ PLUGINS = mpich2
 
 # How to run the program:
 
-1.Log into th EC2 instance using: "ssh -i my_key.pem host@server-name"
+1.Log into th EC2 instance using: `$ssh -i my_key.pem host@server-name`
 
-2.Start your already created cluster by using: "starcluster start -x cluster-name"
+2.Start your already created cluster by using: `$starcluster start -x cluster-name`
 
-3.If you have previously not created a cluster use this: "starcluster start cluster-name" 
+3.If you have previously not created a cluster use this: `$starcluster start cluster-name` 
 
-4.Once cluster has started type: $ su - sgeadmin
+4.Once cluster has started type: `$su - sgeadmin`
 
-5.Now you may run your .py file using the method stated under "Iter-mpi-matrix-vetor.py" heading of this page.
+5.Now you may run your .py file using the method stated under `Iter-mpi-matrix-vetor.py` heading of this page.
 
 
 
