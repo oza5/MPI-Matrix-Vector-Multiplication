@@ -1,3 +1,4 @@
+##Authors: Osman Ali, Akshay Krishna
 
 from mpi4py import MPI           ##imports for python library numpy and math
 from math import ceil, fabs	 ##Import MPI library for parallel processing 
