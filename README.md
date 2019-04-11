@@ -7,7 +7,7 @@ The code can be run using the following command:
 $mpirun -n 4 python Iter-mpi-matrix-vetor.py
 
 -argument following '-n' is a integer that defines the number of parallel processors to run the code logic on.
--prints out thr runnig time of each node
+-prints out the running time of each node
 -code consists of comments.
 
 
