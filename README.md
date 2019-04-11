@@ -1,7 +1,6 @@
 ##PROJECT DOCUMENTATION
 
-
-# V-MM.py:
+# Iter-mpi-matrix-vetor.py:
 The code can be run using the following command:
 
 
