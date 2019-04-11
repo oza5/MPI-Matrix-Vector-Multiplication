@@ -12,7 +12,7 @@ node_name = MPI.Get_processor_name() ##name of the node
 
 print("Running %d parallel MPI processes of %d on %s" % (rank,clu_size,node_name))   ##print statement for 
 
-##########################################
+#############defining the function ################
 
 def matvecmul(comm,A,x,size_vec,iter):   '''main function that takes four arguments A = the matrix, 
 						 x = vector, size_vec = size of the vector being used,
@@ -29,7 +29,7 @@ def matvecmul(comm,A,x,size_vec,iter):   '''main function that takes four argume
  	
  return new_vec
 
-###########################################
+############## main #############################
 
 size_vec = 32				##size vector, change as needed
 iter = 20				##no. of iterations change as needed
@@ -42,7 +42,7 @@ A = numpy.random.rand(comp_vec_size, size_vec) ## generate random matrix of size
 
 y_mpi = matvecmul(comm, A, x,size_vec,iter) ##call the parallel matrix-vector-multiplication program  
 
-##############################################
+############### testing results ################
 
 if rank == 0:				'''Check results of mpi application using builtin numpy matrix-vec multiplication'''
  #test
