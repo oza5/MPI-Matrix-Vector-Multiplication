@@ -23,7 +23,7 @@ The code can be run using the following command:
 # StarCluster and Mpich2 Configurations:
 Following are the configurations that the StarCluster on our EC2 instance is running on. 
 
-These values can be changed in the `".starcluster/Config"` file under [aws info]:
+These values can be changed in the `$vim .starcluster/Config` file under [aws info]:
 
 [aws info]  
 AWS_ACCESS_KEY_ID =#your_aws_access_key_id  
