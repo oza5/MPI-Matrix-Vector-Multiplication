@@ -55,7 +55,7 @@ PLUGINS = mpich2
 
 5.Now you may run your .py file using the method stated under `Iter-mpi-matrix-vetor.py` heading of this page.
 
-
+`A screen recording is added to help users on how to run the code on AWS EC2 server using starCluster`
 
 
 
