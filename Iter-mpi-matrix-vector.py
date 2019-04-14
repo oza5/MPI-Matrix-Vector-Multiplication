@@ -14,10 +14,11 @@ print("Running %d parallel MPI processes of %d on %s" % (rank,clu_size,node_name
 
 #############defining the function ################
 
-def matvecmul(comm,A,x,size_vec,iter):   '''main function that takes four arguments A = the matrix, 
-						 x = vector, size_vec = size of the vector being used,
-							 iter = no. of iterations'''
- 	
+#main function that takes four arguments 
+#A = the matrix ,x = vector, size_vec = size of the vector being used,
+#iter = no. of iterations*/
+
+def matvecmul(comm,A,x,size_vec,iter):   
  
  for t in xrange(iter):			##the main iterations over the vector
 	new_vec = numpy.inner(A,x)	##each node gets a piece of the vector
@@ -30,6 +31,8 @@ def matvecmul(comm,A,x,size_vec,iter):   '''main function that takes four argume
  return new_vec
 
 ############## main #############################
+
+#Check results of mpi application using builtin numpy matrix-vec multiplication
 
 size_vec = 32				##size vector, change as needed
 iter = 20				##no. of iterations change as needed
@@ -44,7 +47,7 @@ y_mpi = matvecmul(comm, A, x,size_vec,iter) ##call the parallel matrix-vector-mu
 
 ############### testing results ################
 
-if rank == 0:				'''Check results of mpi application using builtin numpy matrix-vec multiplication'''
+if rank == 0:				
  #test
  y = numpy.dot(A, x)
  print(y,"y")
